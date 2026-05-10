@@ -1,0 +1,97 @@
+.skills{
+  background:#1f2235;
+  padding:120px 10%;
+}
+
+.skill-sub{
+  color:#b0b4c5;
+  font-size:18px;
+}
+
+.skill-title{
+  color:#ff4b5c;
+  font-size:58px;
+  margin-top:10px;
+  margin-bottom:60px;
+}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.skill-card{
+  background:#2a2d45;
+  padding:35px;
+  border-radius:14px;
+  transition:0.3s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.skill-card:hover{
+  transform:translateY(-10px);
+  border:1px solid #ff4b5c;
+}
+
+.skill-card h2{
+  color:white;
+  font-size:24px;
+  margin-bottom:18px;
+}
+
+.skill-card p{
+  color:#b5b8c5;
+  line-height:1.8;
+  margin-bottom:30px;
+}
+
+.progress{
+  width:100%;
+  height:10px;
+  background:#3a3e5a;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  background:#ff4b5c;
+  border-radius:20px;
+}
+
+.java{
+  width:90%;
+}
+
+.angular{
+  width:85%;
+}
+
+.postgres{
+  width:80%;
+}
+
+.api{
+  width:88%;
+}
+
+.git{
+  width:82%;
+}
+
+.jsp{
+  width:78%;
+}
+
+@media(max-width:900px){
+
+  .skills-grid{
+    grid-template-columns:1fr;
+  }
+
+  .skill-title{
+    font-size:42px;
+  }
+
+}

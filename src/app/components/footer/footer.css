@@ -1,0 +1,41 @@
+.footer{
+  background:#020617;
+  padding:50px 10%;
+  text-align:center;
+}
+
+.footer h2{
+  color:white;
+  font-size:32px;
+  margin-bottom:25px;
+}
+
+.footer h2 span{
+  color:#ff4b5c;
+}
+
+.footer-links,
+.footer-social{
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
+}
+
+.footer-links a,
+.footer-social a{
+  color:#cbd5e1;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover{
+  color:#ff4b5c;
+}
+
+.footer p{
+  color:#8f93a6;
+  font-size:14px;
+}
