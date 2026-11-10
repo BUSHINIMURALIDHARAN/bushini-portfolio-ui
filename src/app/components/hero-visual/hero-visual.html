@@ -1,0 +1,22 @@
+<div class="scene" [style.--n]="tech.length">
+  <div class="stage">
+    <div class="frame">
+      <picture>
+        <source
+          type="image/webp"
+          srcset="profile-480.webp 480w, profile-720.webp 720w, profile.webp 960w"
+          sizes="(max-width: 900px) min(calc((100vw - 32px) * 0.72), 300px), 400px"
+        />
+        <img src="profile.jpg" width="960" height="1280" fetchpriority="high" alt="Portrait of Bushini M" />
+      </picture>
+    </div>
+
+    <div class="ring" aria-hidden="true">
+      @for (item of tech; track item.label; let i = $index) {
+        <div class="slot" [style.--i]="i">
+          <span class="chip"><i [style.background]="item.color"></i>{{ item.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</div>

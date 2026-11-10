@@ -1,41 +1,96 @@
-.footer{
-  background:#020617;
-  padding:50px 10%;
-  text-align:center;
+:host {
+  display: block;
 }
 
-.footer h2{
-  color:white;
-  font-size:32px;
-  margin-bottom:25px;
+.footer {
+  padding: 44px 0;
+  background: var(--bg);
 }
 
-.footer h2 span{
-  color:#ff4b5c;
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 40px;
 }
 
-.footer-links,
-.footer-social{
-  display:flex;
-  justify-content:center;
-  gap:28px;
-  flex-wrap:wrap;
-  margin-bottom:25px;
+.brand {
+  font: 700 1.3rem var(--font-head);
 }
 
-.footer-links a,
-.footer-social a{
-  color:#cbd5e1;
-  text-decoration:none;
-  transition:0.3s;
+.brand span {
+  color: var(--accent);
 }
 
-.footer-links a:hover,
-.footer-social a:hover{
-  color:#ff4b5c;
+.copy {
+  margin-top: 4px;
+  color: var(--faint);
+  font-size: 0.86rem;
 }
 
-.footer p{
-  color:#8f93a6;
-  font-size:14px;
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+}
+
+.links a {
+  color: var(--muted);
+  font-size: 0.92rem;
+  transition: color 0.2s;
+}
+
+.links a:hover {
+  color: var(--accent);
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-right: 56px;
+}
+
+.to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line-hi);
+  border-radius: 14px;
+  background: rgba(18, 24, 38, 0.88);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  font-size: 1.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s, border-color 0.2s, color 0.2s;
+}
+
+.to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.to-top:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .socials {
+    margin-right: 0;
+  }
 }

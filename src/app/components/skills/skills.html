@@ -1,105 +1,30 @@
-<section class="skills" id="skills">
+<section class="section section--alt" id="skills" aria-labelledby="skills-title">
+  <div class="container">
+    <app-section-heading
+      index="02"
+      label="Skills"
+      titleId="skills-title"
+      title="The stack I work with"
+      lead="Day-to-day tools from enterprise projects, plus the technologies I use in my own builds."
+    />
 
-  <p class="skill-sub">
-    Expertise
-  </p>
-
-  <h1 class="skill-title">
-    Skill-Set
-  </h1>
-
-  <div class="skills-grid">
-
-    <div class="skill-card">
-
-      <h2>Java Development</h2>
-
-      <p>
-        Enterprise application development using
-        Core Java, JDBC and Spring Boot.
-      </p>
-
-      <div class="progress">
-        <div class="progress-fill java"></div>
-      </div>
-
+    <div class="grid">
+      @for (group of groups; track group.title; let i = $index) {
+        <article class="card group" [appReveal]="(i % 2) * 120" appTilt>
+          <div class="head">
+            <span class="tile"><app-icon [name]="group.icon" /></span>
+            <div>
+              <h3>{{ group.title }}</h3>
+              <p>{{ group.blurb }}</p>
+            </div>
+          </div>
+          <ul class="chips">
+            @for (item of group.items; track item) {
+              <li class="chip">{{ item }}</li>
+            }
+          </ul>
+        </article>
+      }
     </div>
-
-    <div class="skill-card">
-
-      <h2>Angular</h2>
-
-      <p>
-        Responsive frontend development using
-        Angular and TypeScript.
-      </p>
-
-      <div class="progress">
-        <div class="progress-fill angular"></div>
-      </div>
-
-    </div>
-
-    <div class="skill-card">
-
-      <h2>PostgreSQL</h2>
-
-      <p>
-        Database design, query optimization
-        and stored procedures.
-      </p>
-
-      <div class="progress">
-        <div class="progress-fill postgres"></div>
-      </div>
-
-    </div>
-
-    <div class="skill-card">
-
-      <h2>REST APIs</h2>
-
-      <p>
-        RESTful API development and backend
-        integration for enterprise systems.
-      </p>
-
-      <div class="progress">
-        <div class="progress-fill api"></div>
-      </div>
-
-    </div>
-
-    <div class="skill-card">
-
-      <h2>Git & GitHub</h2>
-
-      <p>
-        Version control, repository management
-        and collaborative development workflows.
-      </p>
-
-      <div class="progress">
-        <div class="progress-fill git"></div>
-      </div>
-
-    </div>
-
-    <div class="skill-card">
-
-      <h2>JSP & AngularJS</h2>
-
-      <p>
-        Experience in maintaining legacy
-        enterprise applications and UI modules.
-      </p>
-
-      <div class="progress">
-        <div class="progress-fill jsp"></div>
-      </div>
-
-    </div>
-
   </div>
-
 </section>

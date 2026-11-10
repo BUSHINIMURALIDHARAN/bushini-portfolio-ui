@@ -1,53 +1,55 @@
-<section class="home" id="home">
+<section class="hero" id="home" aria-labelledby="hero-title" appParallax>
+  <div class="hero-bg" aria-hidden="true"></div>
 
-  <div class="home-left">
-    <p class="intro">Hello, I'm</p>
+  <div class="container hero-grid">
+    <div class="copy">
+      <p class="status">
+        <span class="pulse"></span>
+        {{ profile.role }} at {{ profile.company }}
+      </p>
 
-    <h1>Bushini M</h1>
+      <h1 id="hero-title">
+        Hi, I'm <span class="grad-text">{{ profile.name }}</span>
+      </h1>
 
-    <h2>Java Full Stack Developer</h2>
+      <p class="typed">
+        <span class="sr-only">{{ profile.title }}</span>
+        <span aria-hidden="true"><span class="prompt">&gt;</span>{{ typed() }}<span class="caret"></span></span>
+      </p>
 
-    <p class="desc">
-      I build enterprise web applications using Java, Spring Boot,
-      Angular, JSP and PostgreSQL.
-    </p>
+      <p class="lead">{{ profile.summary }}</p>
 
-   <div class="button-group">
+      <div class="cta">
+        <a class="btn btn-primary" href="#projects">
+          View my work
+          <app-icon name="arrow-right" />
+        </a>
+        <a class="btn btn-outline" [href]="profile.resume" [attr.download]="profile.resumeName">
+          <app-icon name="download" />
+          Download résumé
+        </a>
+      </div>
 
-  <a href="#projects" class="btn">
-    View Projects
-  </a>
+      <ul class="socials" aria-label="Social links">
+        @for (social of socials; track social.label) {
+          <li>
+            <a class="icon-btn" [href]="social.href" [attr.aria-label]="social.label" target="_blank" rel="noopener">
+              <app-icon [name]="social.icon" />
+            </a>
+          </li>
+        }
+      </ul>
 
-  <a href="/resume.pdf"
-     class="btn resume-btn"
-     download>
-
-     Download Resume
-
-  </a>
-
-</div>
-    <div class="social-icons">
-
-  <a href="https://github.com/BUSHINIMURALIDHARAN" target="_blank">
-    GitHub
-  </a>
-
-  <a href="https://www.linkedin.com/in/bushini-m-98727a257" target="_blank">
-    LinkedIn
-  </a>
-
-  <a href="mailto:bushinimuralidharan@gmail.com">
-    Gmail
-  </a>
-
-</div>
-  </div>
-
-  <div class="home-right">
-    <div class="image-box">
-      <img src="/profile.jpg" alt="Bushini M">
+      <dl class="stats">
+        @for (stat of stats; track stat.label) {
+          <div>
+            <dt>{{ stat.value }}</dt>
+            <dd>{{ stat.label }}</dd>
+          </div>
+        }
+      </dl>
     </div>
-  </div>
 
+    <app-hero-visual />
+  </div>
 </section>

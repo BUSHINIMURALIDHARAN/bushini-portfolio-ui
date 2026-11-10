@@ -1,40 +1,90 @@
-.experience{
-  background:#1f2235;
-  padding:120px 10%;
+:host {
+  display: block;
 }
 
-.title{
-  color:#ff4b5c;
-  font-size:55px;
-  margin-bottom:50px;
+.timeline {
+  position: relative;
+  margin-top: 52px;
+  padding-left: 36px;
 }
 
-.exp-card{
-  background:#2a2d45;
-  padding:40px;
-  border-radius:12px;
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(var(--accent), var(--accent-2) 70%, transparent);
 }
 
-.exp-card h2{
-  color:white;
-  margin-bottom:10px;
+.item {
+  position: relative;
 }
 
-.exp-card h3{
-  color:#ff4b5c;
-  margin-bottom:10px;
+.node {
+  position: absolute;
+  left: -36px;
+  top: 32px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 0 0 0 6px rgba(255, 93, 115, 0.14);
 }
 
-.exp-card span{
-  color:#b5b8c5;
+.job {
+  padding: 32px;
 }
 
-.exp-card ul{
-  margin-top:25px;
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px 24px;
 }
 
-.exp-card li{
-  color:#d4d7e3;
-  margin-bottom:18px;
-  line-height:1.8;
+h3 {
+  font-size: 1.45rem;
+}
+
+.company {
+  margin-top: 4px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.points {
+  display: grid;
+  gap: 14px;
+  margin: 26px 0;
+}
+
+.points li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  color: var(--muted);
+}
+
+.points app-icon {
+  margin-top: 5px;
+  color: var(--ok);
+}
+
+@media (max-width: 720px) {
+  .timeline {
+    padding-left: 28px;
+  }
+
+  .node {
+    left: -28px;
+  }
+
+  .job {
+    padding: 24px;
+  }
 }

@@ -1,0 +1,167 @@
+:host {
+  display: block;
+}
+
+.scene {
+  --r: clamp(100px, 17vw, 230px);
+  --dur: 26s;
+  perspective: 1200px;
+}
+
+.stage {
+  position: relative;
+  transform: rotateY(calc(var(--px, 0) * 12deg)) rotateX(calc(var(--py, 0) * -9deg));
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.frame {
+  aspect-ratio: 4 / 5;
+  padding: 3px;
+  border-radius: 28px;
+  background: var(--grad);
+  box-shadow: 0 40px 80px -30px rgba(255, 93, 115, 0.4);
+}
+
+picture,
+img {
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  border-radius: 25px;
+  object-fit: cover;
+  object-position: 50% 22%;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(-14deg);
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  animation: orbit var(--dur) linear infinite;
+  animation-delay: calc(var(--i) * var(--dur) / var(--n) * -1);
+  animation-play-state: var(--play, running);
+}
+
+.chip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--line-hi);
+  border-radius: 12px;
+  background: rgba(18, 24, 38, 0.94);
+  box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.6);
+  font: 500 0.8rem/1.2 var(--font-mono);
+  white-space: nowrap;
+  translate: -50% -50%;
+  animation:
+    face var(--dur) linear infinite,
+    depth var(--dur) linear infinite;
+  animation-delay: calc(var(--i) * var(--dur) / var(--n) * -1);
+  animation-play-state: var(--play, running);
+}
+
+.chip i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.slot:nth-child(1) {
+  --sx: 2%;
+  --sy: 10%;
+}
+
+.slot:nth-child(2) {
+  --sx: 98%;
+  --sy: 30%;
+}
+
+.slot:nth-child(3) {
+  --sx: 96%;
+  --sy: 78%;
+}
+
+.slot:nth-child(4) {
+  --sx: 4%;
+  --sy: 92%;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotateY(0deg) translateZ(var(--r));
+  }
+  to {
+    transform: rotateY(360deg) translateZ(var(--r));
+  }
+}
+
+@keyframes face {
+  from {
+    transform: rotateY(0deg) rotateX(14deg);
+  }
+  to {
+    transform: rotateY(-360deg) rotateX(14deg);
+  }
+}
+
+@keyframes depth {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 900px) {
+  .scene {
+    --r: clamp(100px, 33vw, 150px);
+  }
+
+  .chip {
+    gap: 0.45rem;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage,
+  .ring {
+    transform: none;
+  }
+
+  .slot {
+    top: var(--sy);
+    left: var(--sx);
+    transform: none;
+    animation: none;
+  }
+
+  .chip {
+    transform: none;
+    animation: none;
+  }
+}

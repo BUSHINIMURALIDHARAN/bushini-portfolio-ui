@@ -1,40 +1,37 @@
-<section class="experience" id="experience">
+<section class="section" id="experience" aria-labelledby="experience-title">
+  <div class="container">
+    <app-section-heading index="03" label="Experience" titleId="experience-title" title="Where I've been building" />
 
-  <h1 class="title">Experience</h1>
+    <ol class="timeline">
+      @for (job of jobs; track job.company) {
+        <li class="item" appReveal>
+          <span class="node" aria-hidden="true"></span>
+          <article class="card job">
+            <header>
+              <div>
+                <h3>{{ job.role }}</h3>
+                <p class="company">{{ job.company }}</p>
+              </div>
+              <span class="chip">{{ job.period }}</span>
+            </header>
 
-  <div class="exp-card">
+            <ul class="points">
+              @for (point of job.points; track point) {
+                <li>
+                  <app-icon name="check" />
+                  <span>{{ point }}</span>
+                </li>
+              }
+            </ul>
 
-    <h2>Junior Software Engineer</h2>
-
-    <h3>Paragon Dynamics Info System Pvt Ltd</h3>
-
-    <span>May 2025 - Present</span>
-
-   <ul>
-
-  <li>
-    Working as a Java Full Stack Developer
-    in shipping line-based enterprise projects.
-  </li>
-
-  <li>
-    Developing enterprise web applications using
-    Java, Spring Boot, AngularJS, JSP and PostgreSQL.
-  </li>
-
-  <li>
-    Contributed to logistics and shipping modules
-    including BL processing, invoice systems and workflow management.
-  </li>
-
-  <li>
-    Experienced in SQL query optimization,
-    stored procedures, REST API integration and backend debugging.
-  </li>
-
-
-</ul>
-
+            <ul class="chips">
+              @for (tech of job.stack; track tech) {
+                <li class="chip">{{ tech }}</li>
+              }
+            </ul>
+          </article>
+        </li>
+      }
+    </ol>
   </div>
-
 </section>

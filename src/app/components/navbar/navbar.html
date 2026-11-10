@@ -1,11 +1,41 @@
-<nav class="navbar">
-  <div class="logo">Bushini M<span>.</span></div>
+<header class="nav" [class.scrolled]="spy.scrolled()" [class.open]="open()">
+  <nav class="inner container" aria-label="Primary">
+    <a class="logo" href="#home" (click)="close()">
+      <span class="mark" aria-hidden="true">BM</span>
+      <span>Bushini<span class="dot">.</span><span class="sr-only"> (back to top)</span></span>
+    </a>
 
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+    <ul class="links" id="primary-links">
+      @for (link of links; track link.id) {
+        <li>
+          <a
+            [href]="'#' + link.id"
+            [class.active]="spy.active() === link.id"
+            [attr.aria-current]="spy.active() === link.id ? 'true' : null"
+            (click)="close()"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <a class="btn btn-outline btn-sm" [href]="profile.resume" [attr.download]="profile.resumeName">
+      <app-icon name="download" />
+      Résumé
+    </a>
+
+    <button
+      class="burger"
+      type="button"
+      aria-controls="primary-links"
+      [attr.aria-expanded]="open()"
+      [attr.aria-label]="open() ? 'Close menu' : 'Open menu'"
+      (click)="toggle()"
+    >
+      <app-icon [name]="open() ? 'close' : 'menu'" />
+    </button>
+  </nav>
+
+  <div class="bar" aria-hidden="true" [style.transform]="'scaleX(' + spy.progress() + ')'"></div>
+</header>

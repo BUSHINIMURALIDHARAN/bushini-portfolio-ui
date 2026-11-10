@@ -1,47 +1,43 @@
-<section class="about" id="about">
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="container">
+    <app-section-heading
+      index="01"
+      label="About"
+      titleId="about-title"
+      title="Reliable software for shipping and logistics"
+    />
 
-  <div class="about-container">
-
-    <div class="about-left">
-      <p class="about-sub">About Me</p>
-
-      <h1>Java Full Stack Developer</h1>
-    </div>
-
-    <div class="about-right">
-
-      <p>
-        I am a Software Developer with hands-on experience in Java,
-        Spring Boot, Angular, JSP and PostgreSQL.
-      </p>
-
-      <p>
-        I work on enterprise shipping and logistics applications,
-        including invoice generation, approval workflows,
-        REST API integration and database-driven modules.
-      </p>
-
-      <div class="about-cards">
-
-        <div class="about-card">
-          <h2>Java</h2>
-          <span>Backend Development</span>
-        </div>
-
-        <div class="about-card">
-          <h2>Angular</h2>
-          <span>Frontend Development</span>
-        </div>
-
-        <div class="about-card">
-          <h2>PostgreSQL</h2>
-          <span>Database Management</span>
-        </div>
-
+    <div class="grid">
+      <div class="copy" appReveal>
+        <p>
+          I'm a <strong>Java Full Stack Developer</strong> at Paragon Dynamics Info System, working on enterprise
+          shipping and logistics applications: invoice generation, approval workflows, REST API integration and
+          database-driven modules.
+        </p>
+        <p>
+          I'm comfortable across the whole stack, from Spring Boot services and PostgreSQL stored procedures to
+          Angular, AngularJS and JSP front ends. Outside work I build projects of my own, like
+          <strong>Blossom Boutique</strong>, a full-stack online shop.
+        </p>
       </div>
 
+      <div class="code card" appReveal="120" role="img" aria-label="Code snippet summarising my profile">
+        <div class="bar" aria-hidden="true">
+          <i></i><i></i><i></i>
+          <span>bushini.ts</span>
+        </div>
+        <pre aria-hidden="true">@for (line of code; track $index) {<span class="ln" [style.padding-left.ch]="line.indent * 2">@for (token of line.tokens; track $index) {<span [class]="token[0]">{{ token[1] }}</span>}</span>}</pre>
+      </div>
     </div>
 
+    <ul class="focus">
+      @for (item of focus; track item.title; let i = $index) {
+        <li class="card" [appReveal]="i * 100" appTilt>
+          <span class="tile"><app-icon [name]="item.icon" /></span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </li>
+      }
+    </ul>
   </div>
-
 </section>

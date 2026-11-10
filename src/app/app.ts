@@ -1,33 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, afterNextRender, inject } from '@angular/core';
 
+import { NAV_LINKS } from './data/portfolio.data';
+import { ScrollSpy } from './services/scroll-spy';
 import { Navbar } from './components/navbar/navbar';
 import { Home } from './components/home/home';
 import { About } from './components/about/about';
 import { Skills } from './components/skills/skills';
+import { Experience } from './components/experience/experience';
+import { Education } from './components/education/education';
 import { Projects } from './components/projects/projects';
 import { Contact } from './components/contact/contact';
 import { Footer } from './components/footer/footer';
-import { Experience } from './components/experience/experience';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-
-  imports: [
-    Navbar,
-    Home,
-    About,
-    Skills,
-    Projects,
-    Contact,
-    Footer,
-    Experience
-  ],
-
+  imports: [Navbar, Home, About, Skills, Experience, Education, Projects, Contact, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css'
 })
-
 export class App {
+  private readonly spy = inject(ScrollSpy);
 
+  constructor() {
+    afterNextRender(() => this.spy.start(NAV_LINKS.map((link) => link.id)));
+  }
 }

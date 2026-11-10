@@ -1,0 +1,41 @@
+<section class="section section--alt" id="education" aria-labelledby="education-title">
+  <div class="container">
+    <app-section-heading index="04" label="Education" titleId="education-title" title="Where I studied" />
+
+    <div class="grid">
+      @for (item of items; track item.title; let i = $index) {
+        <article class="card edu" [class.featured]="item.featured" [appReveal]="i * 100" appTilt>
+          <div class="top">
+            <span class="tile"><app-icon [name]="item.icon" /></span>
+            <p class="level">{{ item.level }}</p>
+            <span class="score">{{ item.score }}</span>
+          </div>
+
+          <h3>{{ item.title }}</h3>
+          <p class="school">{{ item.school }}</p>
+          @if (item.detail) {
+            <p class="detail">{{ item.detail }}</p>
+          }
+
+          <ul class="meta">
+            <li>
+              <app-icon name="pin" />
+              {{ item.place }}
+            </li>
+            <li>
+              <app-icon name="calendar" />
+              {{ item.year }}
+            </li>
+          </ul>
+
+          @if (item.note) {
+            <p class="note">
+              <app-icon name="award" />
+              <span>{{ item.note }}</span>
+            </p>
+          }
+        </article>
+      }
+    </div>
+  </div>
+</section>

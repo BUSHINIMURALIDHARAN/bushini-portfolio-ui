@@ -1,42 +1,85 @@
-<section class="projects" id="projects">
+<section class="section" id="projects" aria-labelledby="projects-title">
+  <div class="container">
+    <app-section-heading
+      index="05"
+      label="Projects"
+      titleId="projects-title"
+      title="Selected work"
+      lead="A live full-stack app, enterprise modules from my day job and an IoT safety system."
+    />
 
-  <h1 class="project-title">Projects</h1>
+    <div class="grid">
+      @for (project of projects; track project.title; let i = $index) {
+        <article
+          class="card project"
+          [class.featured]="project.featured"
+          [appReveal]="i * 100"
+          [appTilt]="project.featured ? 3 : 6"
+        >
+          <div class="body">
+            <div class="top">
+              <span class="tile"><app-icon [name]="project.icon" /></span>
+              <p class="kind">{{ project.kind }}</p>
+              @if (project.badge) {
+                <span class="badge" [class.live]="project.live">{{ project.badge }}</span>
+              }
+            </div>
 
-  <div class="projects-grid">
+            <h3>{{ project.title }}</h3>
+            <p class="summary">{{ project.summary }}</p>
 
-    <div class="project-card">
+            <ul class="chips">
+              @for (tech of project.stack; track tech) {
+                <li class="chip">{{ tech }}</li>
+              }
+            </ul>
 
-      <h2>Shipping Line Management System</h2>
+            <div class="links">
+              @for (link of project.links; track link.href) {
+                <a class="link" [href]="link.href" target="_blank" rel="noopener">
+                  <app-icon [name]="link.icon" />
+                  {{ link.label }}
+                </a>
+              }
+              @if (project.proprietary) {
+                <span class="private">
+                  <app-icon name="lock" />
+                  Source is proprietary
+                </span>
+              }
+            </div>
+          </div>
 
-      <p>
-        Developed enterprise shipping modules
-        using Java, AngularJS, JSP and PostgreSQL.
-      </p>
+          @if (project.highlights) {
+            <aside class="side">
+              <ul class="highlights">
+                @for (highlight of project.highlights; track highlight) {
+                  <li>
+                    <app-icon name="check" />
+                    <span>{{ highlight }}</span>
+                  </li>
+                }
+              </ul>
+            </aside>
+          }
 
+          @if (project.flow) {
+            <div class="flow-row">
+              <div class="flow">
+                @for (step of project.flow; track step; let last = $last) {
+                  <span>{{ step }}</span>
+                  @if (!last) {
+                    <app-icon name="arrow-right" />
+                  }
+                }
+              </div>
+              @if (project.hosting) {
+                <p class="hosting">{{ project.hosting }}</p>
+              }
+            </div>
+          }
+        </article>
+      }
     </div>
-
-    <div class="project-card">
-
-      <h2>IoT Enhanced Safety System</h2>
-
-      <p>
-        Built IoT-based gas leak prevention
-        and monitoring system using MQTT.
-      </p>
-
-    </div>
-
-    <div class="project-card">
-
-      <h2>REST API Integration</h2>
-
-      <p>
-        Developed RESTful APIs and optimized
-        database-driven business workflows.
-      </p>
-
-    </div>
-
   </div>
-
 </section>
