@@ -1,5 +1,7 @@
 # Bushini M | Portfolio
 
+Live: https://bushini-m.netlify.app
+
 Personal portfolio for Bushini M, a Java Full Stack Developer. Built with Angular 20 (standalone components, signals, zoneless change detection) and plain CSS, with no UI library.
 
 ## Sections

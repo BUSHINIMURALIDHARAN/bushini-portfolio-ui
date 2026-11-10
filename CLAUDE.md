@@ -40,12 +40,13 @@ There is no lint setup (no ESLint). Formatting follows `.editorconfig` (2 spaces
 - The navbar switches to the hamburger menu at 980px, and that number lives in both `navbar.css` and `navbar.ts` (`onResize`). The seven links stop fitting in one row below it.
 - `.card.tilt:hover` repeats the tilt transform on purpose: plain `.card:hover` has the same job and would otherwise replace the tilt with a bare `translateY`. Keep the two in step.
 - `angular.json` budgets component styles at 4 kB warning / 8 kB error, so put anything shared into `styles.css` instead of repeating it per component.
-- Fonts (Inter, Space Grotesk, JetBrains Mono) load from a single Google Fonts link in `src/index.html`. Do not `@import` fonts in component CSS.
+- Fonts (Inter, Space Grotesk, JetBrains Mono) load from a single Google Fonts link in `src/index.html`. Do not `@import` fonts in component CSS. Self-hosting them (with and without preload) was measured and reverted: no consistent gain under real throttling, and Lighthouse's modelled LCP got about 0.5 s worse.
 - Motion must respect `prefers-reduced-motion` (a global block in `styles.css` handles the blanket case; the typing effect in `home.ts` checks it explicitly).
 
 ## Gotchas
 
 - **Zoneless tests:** every spec must provide `provideZonelessChangeDetection()`, otherwise TestBed throws `NG0908: In this configuration Angular requires Zone.js`.
 - **Angular template syntax:** a literal `{`, `}` or `@` in a template is parsed as ICU or control flow. The code snippet in the About section is therefore built from data in `about.ts` rather than written inline.
+- The live URL `https://bushini-m.netlify.app` is written into `src/index.html` (canonical, Open Graph, JSON-LD), `public/sitemap.xml` and `public/robots.txt`; change all of them together if the domain changes. `netlify.toml` caches images for 30 days and they are not hashed, so give a replaced image a new file name. `public/og-image.jpg` is the 1200x630 link preview (LinkedIn, WhatsApp).
 - `public/bushiniResume.pdf` is the **public** résumé: it has no home address, parents' names or religion on purpose. The untrimmed original lives in `private/` (git-ignored, never deployed). Never copy it back into `public/`.
 - `public/profile.jpg` and `profile.webp` are pre-resized (960x1280); the hero uses `<picture>` with the WebP first. Replace both when changing the photo.
