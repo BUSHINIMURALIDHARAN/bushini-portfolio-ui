@@ -14,7 +14,7 @@
 .nav.scrolled,
 .nav.open {
   border-color: var(--line);
-  background: rgba(10, 13, 20, 0.78);
+  background: var(--nav-bg);
   -webkit-backdrop-filter: blur(14px) saturate(160%);
   backdrop-filter: blur(14px) saturate(160%);
 }
@@ -58,7 +58,7 @@
 }
 
 .dot {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .links {
@@ -78,7 +78,7 @@
 }
 
 .links a:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--fill-2);
   color: var(--text);
 }
 
@@ -97,6 +97,13 @@
   background: var(--grad);
 }
 
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  cursor: pointer;
+}
+
 .burger {
   display: none;
   align-items: center;
@@ -105,7 +112,7 @@
   height: 42px;
   border: 1px solid var(--line-hi);
   border-radius: 11px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--fill-1);
   color: var(--text);
   font-size: 1.25rem;
   cursor: pointer;
@@ -129,7 +136,7 @@
     gap: 2px;
     padding: 12px 24px 20px;
     border-bottom: 1px solid var(--line);
-    background: rgba(10, 13, 20, 0.97);
+    background: var(--nav-bg-solid);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
@@ -148,10 +155,23 @@
   }
 
   .links a.active {
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .links a.active::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    font-size: 1.15rem;
+  }
+
+  .resume .label {
     display: none;
   }
 }

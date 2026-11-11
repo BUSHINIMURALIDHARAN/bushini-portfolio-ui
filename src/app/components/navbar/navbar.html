@@ -20,9 +20,24 @@
       }
     </ul>
 
-    <a class="btn btn-outline btn-sm" [href]="profile.resume" [attr.download]="profile.resumeName">
+    <button
+      class="icon-btn theme-toggle"
+      type="button"
+      [attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+      [attr.title]="theme.theme() === 'dark' ? 'Light mode' : 'Dark mode'"
+      (click)="theme.toggle()"
+    >
+      <app-icon [name]="theme.theme() === 'dark' ? 'sun' : 'moon'" />
+    </button>
+
+    <a
+      class="btn btn-outline btn-sm resume"
+      [href]="profile.resume"
+      [attr.download]="profile.resumeName"
+      aria-label="Download résumé"
+    >
       <app-icon name="download" />
-      Résumé
+      <span class="label">Résumé</span>
     </a>
 
     <button

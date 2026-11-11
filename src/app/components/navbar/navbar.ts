@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 
 import { NAV_LINKS, PROFILE } from '../../data/portfolio.data';
 import { ScrollSpy } from '../../services/scroll-spy';
+import { ThemeService } from '../../services/theme';
 import { Icon } from '../../shared/icon/icon';
 
 @Component({
@@ -17,6 +18,7 @@ import { Icon } from '../../shared/icon/icon';
 })
 export class Navbar {
   protected readonly spy = inject(ScrollSpy);
+  protected readonly theme = inject(ThemeService);
   protected readonly links = NAV_LINKS;
   protected readonly profile = PROFILE;
   protected readonly open = signal(false);

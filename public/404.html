@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#0a0d14">
+  <meta name="color-scheme" content="dark light">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <style>
     * { box-sizing: border-box; }
@@ -42,6 +43,12 @@
       text-decoration: none;
     }
     a:focus-visible { outline: 2px solid #a78bfa; outline-offset: 3px; }
+    @media (prefers-color-scheme: light) {
+      body { background: #f7f8fb; color: #111827; }
+      p { color: #556070; }
+      .code { background: linear-gradient(120deg, #e11d48, #ea580c 48%, #7c3aed); -webkit-background-clip: text; background-clip: text; }
+      a:focus-visible { outline-color: #6d28d9; }
+    }
   </style>
 </head>
 <body>

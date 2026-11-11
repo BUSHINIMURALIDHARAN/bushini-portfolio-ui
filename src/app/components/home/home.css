@@ -16,8 +16,8 @@
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(60% 55% at 85% 12%, rgba(167, 139, 250, 0.2), transparent 60%),
-    radial-gradient(50% 50% at 6% 92%, rgba(255, 93, 115, 0.16), transparent 62%);
+    radial-gradient(60% 55% at 85% 12%, var(--glow-a), transparent 60%),
+    radial-gradient(50% 50% at 6% 92%, var(--glow-b), transparent 62%);
 }
 
 .hero-bg::after {
@@ -48,7 +48,7 @@
   padding: 0.42rem 0.95rem;
   border: 1px solid var(--line-hi);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--fill-1);
   color: var(--muted);
   font: 500 0.82rem/1.4 var(--font-mono);
 }
@@ -74,7 +74,7 @@ h1 {
 
 .prompt {
   margin-right: 0.6rem;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .caret {

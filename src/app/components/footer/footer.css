@@ -20,7 +20,7 @@
 }
 
 .brand span {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .copy {
@@ -42,7 +42,7 @@
 }
 
 .links a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .socials {
@@ -62,7 +62,7 @@
   height: 46px;
   border: 1px solid var(--line-hi);
   border-radius: 14px;
-  background: rgba(18, 24, 38, 0.88);
+  background: var(--panel);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   color: var(--text);
@@ -81,7 +81,7 @@
 
 .to-top:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 @media (max-width: 720px) {

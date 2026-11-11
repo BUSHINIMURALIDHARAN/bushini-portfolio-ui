@@ -24,6 +24,9 @@
 
 .code {
   overflow: hidden;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #0d1220;
+  color: #e9ecf5;
   font-family: var(--font-mono);
 }
 
@@ -36,7 +39,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.025);
 }
 
@@ -57,7 +60,7 @@
 
 .bar span {
   margin-left: 10px;
-  color: var(--faint);
+  color: #7a859d;
   font-size: 0.8rem;
 }
 
@@ -88,7 +91,7 @@ pre {
 }
 
 .p {
-  color: var(--faint);
+  color: #7a859d;
 }
 
 .focus {

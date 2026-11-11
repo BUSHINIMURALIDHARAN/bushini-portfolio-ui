@@ -24,7 +24,7 @@ import { Reveal } from '../reveal';
       display: flex;
       align-items: center;
       gap: 0.8rem;
-      color: var(--accent);
+      color: var(--accent-text);
       font: 500 0.8rem/1 var(--font-mono);
       letter-spacing: 0.14em;
       text-transform: uppercase;

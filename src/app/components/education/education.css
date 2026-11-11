@@ -21,7 +21,7 @@
   border-color: rgba(255, 93, 115, 0.28);
   background:
     radial-gradient(70% 80% at 0% 0%, rgba(255, 93, 115, 0.1), transparent 60%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+    linear-gradient(180deg, var(--card-a), var(--card-b));
 }
 
 .top {
@@ -40,10 +40,10 @@
 .score {
   margin-left: auto;
   padding: 0.2rem 0.7rem;
-  border: 1px solid rgba(74, 222, 128, 0.4);
+  border: 1px solid var(--ok-line);
   border-radius: 999px;
-  background: rgba(74, 222, 128, 0.08);
-  color: #86efac;
+  background: var(--ok-bg);
+  color: var(--ok-text);
   font: 500 0.78rem/1.5 var(--font-mono);
   white-space: nowrap;
 }
@@ -98,7 +98,7 @@ h3 {
 
 .note app-icon {
   margin-top: 3px;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 @media (max-width: 760px) {

@@ -10,6 +10,8 @@ Hero, About, Skills, Experience, Education, Projects and Contact, with a sticky 
 
 The 3D effects are plain CSS transforms (no WebGL or extra libraries): the hero portrait tilts with the mouse while tech chips orbit it, and the cards lean towards the pointer with a soft glare. All motion is switched off for `prefers-reduced-motion` and ignored on touch screens.
 
+There is a light and a dark theme. The site follows the visitor's system setting, and the sun/moon button in the navbar switches it and remembers the choice. Dark is the original midnight navy.
+
 ## Run it
 
 ```bash
@@ -32,7 +34,7 @@ All text, links and project cards live in one file: [`src/app/data/portfolio.dat
 | Qualifications (newest first, one `featured`) | `EDUCATION` |
 | Project cards (set `featured` for the wide card) | `PROJECTS` |
 
-Colours, fonts and spacing are CSS variables at the top of [`src/styles.css`](src/styles.css).
+Colours, fonts and spacing are CSS variables at the top of [`src/styles.css`](src/styles.css), with one block for the dark theme and one for the light theme.
 
 Assets are in `public/`: `profile.jpg` and `profile.webp` (portrait), `bushiniResume.pdf` (the file the Résumé buttons download), and the favicon set.
 
