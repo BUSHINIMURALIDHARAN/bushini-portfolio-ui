@@ -13,6 +13,7 @@
         <article
           class="card project"
           [class.featured]="project.featured"
+          [class.has-media]="project.image"
           [appReveal]="i * 100"
           [appTilt]="project.featured ? 3 : 6"
         >
@@ -49,6 +50,39 @@
               }
             </div>
           </div>
+
+          @if (project.image; as image) {
+            <figure class="media">
+              <div class="window">
+                <div class="bar" aria-hidden="true">
+                  <i></i><i></i><i></i>
+                  <span>{{ image.host }}</span>
+                </div>
+                <img
+                  class="shot"
+                  [srcset]="image.srcset"
+                  sizes="(max-width: 900px) 100vw, 40vw"
+                  [src]="image.src"
+                  [width]="image.width"
+                  [height]="image.height"
+                  [alt]="image.alt"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              @if (image.phone; as phone) {
+                <img
+                  class="phone"
+                  [src]="phone.src"
+                  [width]="phone.width"
+                  [height]="phone.height"
+                  [alt]="phone.alt"
+                  loading="lazy"
+                  decoding="async"
+                />
+              }
+            </figure>
+          }
 
           @if (project.highlights) {
             <aside class="side">

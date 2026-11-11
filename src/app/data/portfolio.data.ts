@@ -51,6 +51,19 @@ export interface ProjectLink {
   icon: IconName;
 }
 
+export interface ProjectShot {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+export interface ProjectImage extends ProjectShot {
+  srcset: string;
+  host: string;
+  phone?: ProjectShot;
+}
+
 export interface Project {
   title: string;
   kind: string;
@@ -65,6 +78,7 @@ export interface Project {
   highlights?: string[];
   flow?: string[];
   hosting?: string;
+  image?: ProjectImage;
 }
 
 export interface TechChip {
@@ -223,6 +237,20 @@ export const PROJECTS: Project[] = [
     ],
     flow: ['Angular storefront', 'Spring Boot API', 'PostgreSQL'],
     hosting: 'Deployed on Vercel, Render and Neon',
+    image: {
+      src: 'blossom-desktop-1280.webp',
+      srcset: 'blossom-desktop-640.webp 640w, blossom-desktop-1280.webp 1280w',
+      width: 1280,
+      height: 800,
+      alt: 'Blossom Boutique storefront on a desktop screen: navigation with search, wishlist and bag above a full-width hero banner',
+      host: 'blossom-frontend-murex.vercel.app',
+      phone: {
+        src: 'blossom-mobile.webp',
+        width: 320,
+        height: 693,
+        alt: 'The same storefront on a phone, with a bottom tab bar',
+      },
+    },
     stack: ['Angular', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'REST API'],
     links: [
       { label: 'Live site', href: 'https://blossom-frontend-murex.vercel.app', icon: 'arrow-up-right' },

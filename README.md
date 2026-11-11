@@ -32,11 +32,11 @@ All text, links and project cards live in one file: [`src/app/data/portfolio.dat
 | Skill groups | `SKILL_GROUPS` |
 | Job history | `EXPERIENCE` |
 | Qualifications (newest first, one `featured`) | `EDUCATION` |
-| Project cards (set `featured` for the wide card) | `PROJECTS` |
+| Project cards (set `featured` for the wide card, `image` adds a screenshot) | `PROJECTS` |
 
 Colours, fonts and spacing are CSS variables at the top of [`src/styles.css`](src/styles.css), with one block for the dark theme and one for the light theme.
 
-Assets are in `public/`: `profile.jpg` and `profile.webp` (portrait), `bushiniResume.pdf` (the file the Résumé buttons download), and the favicon set.
+Assets are in `public/`: `profile.jpg` and `profile.webp` (portrait), `blossom-*.webp` (screenshots of the live Blossom Boutique shown on its project card), `bushiniResume.pdf` (the file the Résumé buttons download), and the favicon set.
 
 ## Structure
 

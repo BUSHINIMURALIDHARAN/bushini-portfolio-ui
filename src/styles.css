@@ -35,6 +35,7 @@
   --shadow-hover: 0 26px 50px -26px rgba(0, 0, 0, 0.75);
   --shadow-chip: 0 14px 30px -12px rgba(0, 0, 0, 0.6);
   --frame-shadow: 0 40px 80px -30px rgba(255, 93, 115, 0.4);
+  --bezel: #10141d;
   --grad: linear-gradient(120deg, #ff5d73 0%, #ff8a6b 48%, #a78bfa 100%);
   --grad-text: var(--grad);
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;

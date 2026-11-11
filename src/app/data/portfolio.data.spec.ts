@@ -22,6 +22,44 @@ describe('portfolio data', () => {
     }
   });
 
+  it('describes every project screenshot so it can be sized, read and matched to its live link', () => {
+    for (const project of PROJECTS) {
+      const image = project.image;
+      if (!image) {
+        continue;
+      }
+      for (const shot of [image, ...(image.phone ? [image.phone] : [])]) {
+        expect(shot.src).withContext(shot.src).toMatch(/^[\w-]+\.webp$/);
+        expect(shot.alt.length).withContext(shot.src).toBeGreaterThan(10);
+        expect(shot.width).withContext(shot.src).toBeGreaterThan(0);
+        expect(shot.height).withContext(shot.src).toBeGreaterThan(0);
+      }
+      expect(image.srcset).withContext(project.title).toContain(`${image.src} ${image.width}w`);
+
+      const live = project.links.find((link) => link.label === 'Live site');
+      expect(live).withContext(project.title).toBeDefined();
+      expect(new URL(live?.href ?? '').host).withContext(project.title).toBe(image.host);
+    }
+  });
+
+  it('points every project screenshot at a file that is actually served', async () => {
+    const urls = new Set<string>();
+    for (const project of PROJECTS) {
+      for (const shot of project.image ? [project.image, ...(project.image.phone ? [project.image.phone] : [])] : []) {
+        urls.add(shot.src);
+      }
+      for (const candidate of project.image?.srcset.split(',') ?? []) {
+        urls.add(candidate.trim().split(' ')[0]);
+      }
+    }
+
+    expect(urls.size).toBeGreaterThan(0);
+    for (const url of urls) {
+      const response = await fetch(url);
+      expect(response.ok).withContext(url).toBeTrue();
+    }
+  });
+
   it('lists education newest first with a four-digit year and exactly one featured entry', () => {
     const years = EDUCATION.map((item) => item.year);
 
